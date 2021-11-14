@@ -1,0 +1,24 @@
+.card {
+  padding: 5px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+.card:not(:last-child) {
+  margin-bottom: 10px;
+}
+.avatar {
+  width: 70px;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: block;
+}
+.p {
+  text-align: justify;
+  text-align-last: start;
+  margin-bottom: 10px;
+}
+.time {
+  display: block;
+  font-weight: bold;
+  text-align: right;
+}

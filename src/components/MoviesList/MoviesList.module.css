@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.link {
+  display: block;
+  padding: 0;
+}
+.card {
+  width: 320px;
+  border: 1px black solid;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.picWrapper {
+  width: 320px;
+}
+.poster {
+  width: 100%;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+.textWrapper {
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
+}
+@media screen and (min-width: 480px) {
+  .container {
+    width: 480px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    justify-content: start;
+  }
+  .card {
+    margin-left: 44px;
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+    margin-left: -39px;
+  }
+  .card {
+    margin-left: 78px;
+  }
+}

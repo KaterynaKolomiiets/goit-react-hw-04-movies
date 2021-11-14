@@ -1,0 +1,12 @@
+.nav {
+  padding: 10px 0;
+}
+.link {
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+}
+.activeLink {
+  color: maroon;
+  text-decoration: underline overline maroon;
+}

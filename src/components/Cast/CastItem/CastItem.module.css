@@ -1,0 +1,12 @@
+.card {
+  display: flex;
+  background: lightgrey;
+  padding: 5px;
+  border-radius: 10px;
+}
+.card:not(:last-child) {
+  margin-bottom: 5px;
+}
+.img {
+  width: 150px;
+}
