@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import ReactImageFallback from "react-image-fallback";
 import fallbackImg from "../img/fallback.png";
 import s from "./MoviesList.module.css";
 import PropTypes from "prop-types";
@@ -7,10 +6,11 @@ import PropTypes from "prop-types";
 const MoviesList = ({ movies }) => {
   const { pathname } = useLocation();
 
-  const BASE_IMG = "https://image.tmdb.org/t/p/w300/";
   return (
     <ul className={s.container}>
-      {movies.map((movie) => (
+      {movies.map((movie) => {
+        let url = movie.poster_path ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}` : fallbackImg;
+        return (
         <li className={s.card} key={movie.id}>
           <Link
             className={s.link}
@@ -20,19 +20,15 @@ const MoviesList = ({ movies }) => {
             }}
           >
             <div className={s.picWrapper}>
-              <ReactImageFallback
-                alt={movie.title || movie.name}
-                className={s.poster}
-                src={`${BASE_IMG}${movie.poster_path}`}
-                fallbackImage={fallbackImg}
-              />
+              <img alt={movie.title || movie.name}
+                className={s.poster} src={url}/>
             </div>
             <div className={s.textWrapper}>
               <span>{movie.title || movie.name}</span>
             </div>
           </Link>
         </li>
-      ))}
+      )})}
     </ul>
   );
 };

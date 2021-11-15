@@ -1,18 +1,13 @@
 import s from "./CastItem.module.css";
-import ReactImageFallback from "react-image-fallback";
 import fallbackImg from "../../img/fallback.png";
 import PropTypes from "prop-types";
 
 const CastItem = ({ actor: { name, character, profile_path } }) => {
-  const BASE_IMG = "https://image.tmdb.org/t/p/w200/";
+  let path = profile_path ? `https://image.tmdb.org/t/p/w200/${profile_path}` : fallbackImg;
   return (
     <li className={s.card}>
-      <ReactImageFallback
-        alt={name}
-        className={s.img}
-        src={`${BASE_IMG}${profile_path}`}
-        fallbackImage={fallbackImg}
-      />
+      <img alt={name} className={s.img} src={path} />
+
       <div>
         <p>Actor: {name}</p>
         <p>Role: {character}</p>

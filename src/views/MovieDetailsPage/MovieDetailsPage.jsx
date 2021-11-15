@@ -7,14 +7,14 @@ import {
   useRouteMatch,
   useLocation,
 } from "react-router-dom";
-import GoBackBtn from "../../GoBackBtn";
-import MovieDetailedInfo from "../../MovieDetailedInfo";
+import GoBackBtn from "../../components/GoBackBtn";
+import MovieDetailedInfo from "../../components/MovieDetailedInfo";
 import { getMovieInfo } from "../../services/themoviedb";
 import s from "./MovieDetailsPage.module.css";
 
-const Cast = lazy(() => import("../../Cast" /*webpackChunkName: "Cast" */));
+const Cast = lazy(() => import("../../components/Cast" /*webpackChunkName: "Cast" */));
 const Reviews = lazy(() =>
-  import("../../Reviews" /*webpackChunkName: "Reviews" */)
+  import("../../components/Reviews" /*webpackChunkName: "Reviews" */)
 );
 
 const MovieDetailsPage = () => {
@@ -38,7 +38,7 @@ const MovieDetailsPage = () => {
             activeClassName={s.active}
             to={{
               pathname: `/movies/${movieId}/cast`,
-              state: { from: location },
+              state: {...location.state}
             }}
           >
             Cast
@@ -50,7 +50,7 @@ const MovieDetailsPage = () => {
             activeClassName={s.active}
             to={{
               pathname: `/movies/${movieId}/reviews`,
-              state: { from: location },
+               state: {...location.state}
             }}
           >
             Reviews
@@ -59,10 +59,10 @@ const MovieDetailsPage = () => {
       </div>
       <Suspense fallback={<h1>LOADING....</h1>}>
         <Switch>
-          <Route path={`${path}/cast`}>
+          <Route path={`${path}/cast`} exact>
             <Cast />
           </Route>
-          <Route path={`${path}/reviews`}>
+          <Route path={`${path}/reviews`} exact>
             <Reviews />
           </Route>
         </Switch>

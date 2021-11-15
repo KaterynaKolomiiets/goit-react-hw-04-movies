@@ -1,4 +1,4 @@
-import { getCast } from "../services/themoviedb";
+import { getCast } from "../../services/themoviedb";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CastItem from "./CastItem/CastItem";

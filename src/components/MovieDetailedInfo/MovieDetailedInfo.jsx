@@ -1,21 +1,17 @@
 import s from "./MovieDetailedInfo.module.css";
-import ReactImageFallback from "react-image-fallback";
 import fallbackImg from "../img/fallback.png";
 import PropTypes from "prop-types";
 
 const MovieDetailedInfo = ({
   info: { name, title, poster_path, overview, genres, popularity },
 }) => {
-  const BASE_IMG = "https://image.tmdb.org/t/p/w300/";
+ let url = poster_path ? `https://image.tmdb.org/t/p/w300/${poster_path}` : fallbackImg;
   return (
     <div className={s.card}>
       <div className={s.imgHolder}>
-        <ReactImageFallback
-          alt={title}
-          className={s.poster}
-          src={`${BASE_IMG}${poster_path}`}
-          fallbackImage={fallbackImg}
-        /> 
+        <img alt={title}
+          className={s.poster} src={url} />
+        
       </div>
       <div className={s.contentWrapper}>
         <h1>{title || name}</h1>

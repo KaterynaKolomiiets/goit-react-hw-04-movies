@@ -1,23 +1,24 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation";
 
 const HomePage = lazy(() =>
   import(
-    "./components/views/HomePage/HomePage" /*webpackChunkName: "HomePage" */
+    "./views/HomePage" /*webpackChunkName: "HomePage" */
   )
 );
 const MoviesPage = lazy(() =>
-  import("./components/views/MoviesPage" /*webpackChunkName: "MoviesPage" */)
+  import("./views/MoviesPage" /*webpackChunkName: "MoviesPage" */)
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    "./components/views/MovieDetailsPage" /*webpackChunkName: "MovieDetailsPage" */
+    "./views/MovieDetailsPage" /*webpackChunkName: "MovieDetailsPage" */
   )
 );
 
 function App() {
+
   return (
     <div className="App">
       <div className="container">
@@ -33,6 +34,7 @@ function App() {
             <Route path="/movies">
               <MoviesPage />
             </Route>
+            <Redirect to="/"/>
           </Switch>
         </Suspense>
       </div>

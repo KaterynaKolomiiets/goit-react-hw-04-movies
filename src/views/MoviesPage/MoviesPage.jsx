@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import Form from "../../Form";
+import Form from "../../components/Form";
 import { getByQuery } from "../../services/themoviedb";
-import MoviesList from "../../MoviesList";
+import MoviesList from "../../components/MoviesList";
 
 const MoviesPage = () => {
   const [query, setQuery] = useState("");
